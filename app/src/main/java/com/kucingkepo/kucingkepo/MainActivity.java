@@ -21,12 +21,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     WebView webView;
     String WEB_URL="https://www.kucingkepo.com/";
     WebSettings webSettings;
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,15 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("KUCINGKEPO.COM");
+
         webView = (WebView) findViewById(R.id.webview);
+        adView = (AdView) findViewById(R.id.adView);
+
+        MobileAds.initialize(this,
+                "ca-app-pub-7790227086520413~8398900789");
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
         webView.loadUrl(WEB_URL);
         webView.requestFocus();
         webSettings = webView.getSettings();
