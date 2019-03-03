@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:622129487002:android:413645c7d0515844",
         "android_client_info": {
-          "package_name": "com.kucingkepo.kucingkepo"
+          "package_name": "com.kucingkepo.care"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "622129487002-css6ejg164f13rkce4sae7si8bjoorst.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.kucingkepo.kucingkepo",
+            "package_name": "com.kucingkepo.care",
             "certificate_hash": "dbea87aa42683a2c834f12e07e8839200fae2c07"
           }
         },

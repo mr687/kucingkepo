@@ -1,4 +1,4 @@
-package com.kucingkepo.kucingkepo;
+package com.kucingkepo.care;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

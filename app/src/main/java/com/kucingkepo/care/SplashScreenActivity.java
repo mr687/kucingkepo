@@ -1,4 +1,4 @@
-package com.kucingkepo.kucingkepo;
+package com.kucingkepo.care;
 
 import android.content.Intent;
 import android.os.Handler;

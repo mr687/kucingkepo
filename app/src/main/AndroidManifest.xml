@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kucingkepo.kucingkepo">
+    package="com.kucingkepo.care">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -15,12 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-        <!--ca-app-pub-9043865407906531~4701637852-->
-        <!--ca-app-pub-7790227086520413~8398900789-->
+        <!-- ca-app-pub-9043865407906531~4701637852 -->
+        <!-- ca-app-pub-7790227086520413~8398900789 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9043865407906531~4701637852"/>
+            android:value="ca-app-pub-9043865407906531~4701637852" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -41,9 +43,9 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".CategoryActivity"></activity>
     </application>
 
 </manifest>

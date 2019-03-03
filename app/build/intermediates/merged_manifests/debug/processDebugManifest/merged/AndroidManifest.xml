@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kucingkepo.kucingkepo"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.kucingkepo.care"
+    android:versionCode="3"
+    android:versionName="3.0" >
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -23,17 +23,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
 
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <!-- ca-app-pub-9043865407906531~4701637852 -->
+        <!-- ca-app-pub-7790227086520413~8398900789 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7790227086520413~8398900789" />
+            android:value="ca-app-pub-9043865407906531~4701637852" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.kucingkepo.kucingkepo.provider"
+            android:authorities="com.kucingkepo.care.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -41,18 +43,19 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name="com.kucingkepo.kucingkepo.SplashScreenActivity" >
-        </activity>
-        <activity
-            android:name="com.kucingkepo.kucingkepo.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name="com.kucingkepo.care.SplashScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.kucingkepo.care.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.kucingkepo.care.AboutActivity" />
+        <activity android:name="com.kucingkepo.care.CategoryActivity" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
@@ -62,7 +65,7 @@
 
         <provider
             android:name="com.google.android.gms.ads.MobileAdsInitProvider"
-            android:authorities="com.kucingkepo.kucingkepo.mobileadsinitprovider"
+            android:authorities="com.kucingkepo.care.mobileadsinitprovider"
             android:exported="false"
             android:initOrder="100" />
 

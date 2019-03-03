@@ -1,4 +1,4 @@
-package com.kucingkepo.kucingkepo;
+package com.kucingkepo.care;
 
 import org.junit.Test;
 
