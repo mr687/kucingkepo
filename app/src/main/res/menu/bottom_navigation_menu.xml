@@ -7,13 +7,13 @@
     <item
         android:id="@+id/navv_tips_cat"
         android:icon="@drawable/ic_lightbulb_outline_black_24dp"
-        android:title="Tips Kucing" />
+        android:title="Tips" />
     <item
         android:id="@+id/navv_cat_story"
         android:icon="@drawable/ic_settings_backup_restore_black_24dp"
-        android:title="Cerita Kucing" />
+        android:title="Cerita" />
     <item
         android:id="@+id/navv_cat_knowledge"
         android:icon="@drawable/ic_lightbulb_outline_black_24dp"
-        android:title="Pengetahuan Kucing" />
+        android:title="Pengetahuan" />
 </menu>

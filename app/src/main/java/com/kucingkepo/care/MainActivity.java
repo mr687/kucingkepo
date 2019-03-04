@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity
         webSettings.setJavaScriptEnabled(true);
         secretV.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         secretV.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-        secretV.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        secretV.getSettings().setCacheMode(WebSettings.LOAD_NORMAL);
         secretV.getSettings().setAppCacheEnabled(true);
         secretV.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         secretV.setScrollbarFadingEnabled(true);

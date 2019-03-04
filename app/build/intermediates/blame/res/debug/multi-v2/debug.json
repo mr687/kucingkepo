@@ -323,9 +323,11 @@
                 {
                     "source": "D:\\Android\\Projects\\kucingkepo\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
                     "from": {
-                        "startLines": "-1",
-                        "startColumns": "-1",
-                        "startOffsets": "-1"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "56",
+                        "endOffsets": "107"
                     },
                     "to": {
                         "startLines": "225",
