@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_lightbulb_outline_black_24dp"
         android:title="Tips" />
     <item
+        android:id="@+id/navv_refresh"
+        android:icon="@drawable/ic_refresh_black_24dp"
+        android:title="Refresh" />
+    <item
         android:id="@+id/navv_cat_story"
         android:icon="@drawable/ic_settings_backup_restore_black_24dp"
         android:title="Cerita" />

@@ -24,10 +24,6 @@
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_person_outline_black_24dp"
             android:title="Tentang Aplikasi" />
-        <item
-            android:id="@+id/nav_category"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Kategori Aplikasi" />
     </group>
 
 </menu>

@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdView;
@@ -47,10 +49,10 @@ public class MainActivity extends AppCompatActivity
     String SECRET="https://www.kucingkepo.com/";
     WebSettings webSettings;
     private AdView adView;
-    ProgressDialog progressDialog;
     boolean conn = false;
     BottomNavigationView botNav;
     String currentSecret;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +68,7 @@ public class MainActivity extends AppCompatActivity
 
         secretV = (WebView) findViewById(R.id.webview);
         adView = (AdView) findViewById(R.id.adView);
-        progressDialog = new ProgressDialog(MainActivity.this);
-        progressDialog.setMessage("Loading..");
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar_horizontal);
 
         conn = false;
 
@@ -104,10 +105,6 @@ public class MainActivity extends AppCompatActivity
         webSettings.setEnableSmoothTransition(true);
         secretV.setWebViewClient(new WebViewClient(){
             @Override
-            public void onPageFinished(WebView view, String url) {
-                progressDialog.dismiss();
-            }
-            @Override
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 return;
             }
@@ -129,12 +126,11 @@ public class MainActivity extends AppCompatActivity
         secretV.setWebChromeClient(new WebChromeClient(){
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-                setTitle("Loading..");
-                setProgress(newProgress * 100);
-                progressDialog.show();
+                progressBar.setProgress(newProgress);
+                progressBar.setVisibility(View.VISIBLE);
                 if(newProgress == 100){
-                    setTitle(R.string.app_name);
-                    progressDialog.dismiss();
+                    progressBar.setProgress(0);
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
@@ -152,7 +148,25 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                secretV.scrollTo(0,0);
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle("Search");
+                final EditText inputSearch = new EditText(MainActivity.this);
+                inputSearch.setInputType(InputType.TYPE_CLASS_TEXT);
+                alert.setView(inputSearch);
+                alert.setPositiveButton("Go", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        currentSecret = SECRET+"search?q=" + inputSearch.getText().toString().trim() + "&max-results=8&m=1";
+                        secretV.loadUrl(currentSecret);
+                    }
+                });
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                alert.show();
             }
         });
 
@@ -180,6 +194,10 @@ public class MainActivity extends AppCompatActivity
                 }
                 if(id == R.id.navv_cat_story){
                     currentSecret = SECRET+"search/label/CERITA%20KUCING";
+                    secretV.loadUrl(currentSecret);
+                    return true;
+                }
+                if(id == R.id.navv_refresh){
                     secretV.loadUrl(currentSecret);
                     return true;
                 }
@@ -230,115 +248,6 @@ public class MainActivity extends AppCompatActivity
         getApplicationContext().registerReceiver(receiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_search) {
-            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.setTitle("Search");
-            final EditText inputSearch = new EditText(this);
-            inputSearch.setInputType(InputType.TYPE_CLASS_TEXT);
-            alert.setView(inputSearch);
-            alert.setPositiveButton("Go", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    currentSecret = SECRET+"search?q=" + inputSearch.getText().toString().trim() + "&max-results=8&m=1";
-                    secretV.loadUrl(currentSecret);
-                }
-            });
-            alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-            alert.show();
-            return true;
-        }
-
-        if(id == R.id.action_refresh){
-            secretV.loadUrl(currentSecret);
-        }
-
-        if(id == R.id.action_about){
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Kucingkepo.com Website Kucing Paling Informatif dan Terupdate di Indonesia. \n \nSegala Informasi apapun seputar Pengetahuan kucing,Cerita kucing dan Tips dunia kucing semua ada disini")
-                    .setCancelable(false)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            //do things
-                        }
-                    });
-            AlertDialog alert = builder.create();
-            alert.show();
-        }
-
-        if(id == R.id.action_share){
-            try {
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Kucing Kepo");
-                String shareMessage= "\nLet me recommend you this article\n\n";
-                shareMessage = shareMessage + currentSecret +"\n\n";
-                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                startActivity(Intent.createChooser(shareIntent, "Choose one"));
-            } catch(Exception e) {
-                //e.toString();
-            }
-        }
-        if(id == R.id.action_category){
-            Intent it =new Intent(MainActivity.this,CategoryActivity.class);
-            startActivityForResult(it,12);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == 12 && resultCode == RESULT_OK){
-            int i = data.getIntExtra("result",10);
-            switch (i){
-                case 0:
-                    currentSecret = SECRET;
-                    secretV.loadUrl(currentSecret);
-                    break;
-                case 1:
-                    currentSecret = SECRET+"search/label/TIPS";
-                    secretV.loadUrl(currentSecret);
-                    break;
-                case 2:
-                    currentSecret = SECRET+"search/label/CERITA%20KUCING";
-                    secretV.loadUrl(currentSecret);
-                    break;
-                case 3:
-                    currentSecret = SECRET+"search/label/PENGETAHUAN";
-                    secretV.loadUrl(currentSecret);
-                    break;
-                case 4:
-                    Intent it =new Intent(MainActivity.this,AboutActivity.class);
-                    startActivity(it);
-                    break;
-                case 10:
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -365,12 +274,6 @@ public class MainActivity extends AppCompatActivity
             secretV.loadUrl(currentSecret);
             return true;
         }
-
-        if(id == R.id.nav_category){
-            Intent it =new Intent(MainActivity.this,CategoryActivity.class);
-            startActivityForResult(it,12);
-        }
-
         if(id == R.id.nav_about){
             Intent it =new Intent(MainActivity.this,AboutActivity.class);
             startActivity(it);

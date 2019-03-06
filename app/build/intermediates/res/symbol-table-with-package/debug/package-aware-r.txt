@@ -610,6 +610,7 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color colorAccent
+color colorAccentt
 color colorNavigationIcon
 color colorNavigationText
 color colorPrimary
@@ -1018,6 +1019,8 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_arrow_upward_black_24dp
+drawable ic_chat_black_24dp
+drawable ic_description_black_24dp
 drawable ic_home_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1063,7 +1066,6 @@ id META
 id SHIFT
 id SYM
 id action0
-id action_about
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1071,7 +1073,6 @@ id action_bar_root
 id action_bar_spinner
 id action_bar_subtitle
 id action_bar_title
-id action_category
 id action_container
 id action_context_bar
 id action_divider
@@ -1081,10 +1082,7 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_refresh
-id action_search
 id action_settings
-id action_share
 id action_text
 id actions
 id activity_chooser_view_content
@@ -1093,6 +1091,7 @@ id add
 id alertTitle
 id all
 id always
+id app_bar_layout
 id async
 id auto
 id barrier
@@ -1162,9 +1161,10 @@ id largeLabel
 id left
 id line1
 id line3
+id linear_layout
 id listMode
 id list_item
-id list_view
+id logo
 id masked
 id media_actions
 id message
@@ -1176,7 +1176,6 @@ id multiply
 id nav_about
 id nav_cat_knowledge
 id nav_cat_story
-id nav_category
 id nav_home
 id nav_tips_cat
 id nav_view
@@ -1184,6 +1183,7 @@ id navigation_header_container
 id navv_cat_knowledge
 id navv_cat_story
 id navv_home
+id navv_refresh
 id navv_tips_cat
 id never
 id none
@@ -1199,6 +1199,7 @@ id parentPanel
 id parent_matrix
 id percent
 id pin
+id progress_bar_horizontal
 id progress_circular
 id progress_horizontal
 id radio
@@ -1334,7 +1335,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_about
-layout activity_category
 layout activity_main
 layout activity_splash_screen
 layout app_bar_main
@@ -1377,7 +1377,6 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu activity_main_drawer
 menu bottom_navigation_menu
-menu main
 menu menu_main2
 mipmap ic_launcher
 mipmap ic_launcher_foreground
