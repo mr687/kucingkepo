@@ -3,6 +3,7 @@ package com.kucingkepo.care;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -25,6 +27,7 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         setTitle("Tentang Kucing Kepo");
+        setTitleColor(Color.WHITE);
 
         adView = (AdView) findViewById(R.id.adView);
 
@@ -33,12 +36,12 @@ public class AboutActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        ImageView fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 view.getContext().startActivity(
-                        new Intent(Intent.ACTION_VIEW, Uri.parse("whatsapp://send?phone=6281332630202&text=Hi%20kucing%20kepo")));
+                        new Intent(Intent.ACTION_VIEW, Uri.parse("whatsapp://send?phone=6281332630202&text=Halo%20Founder%20Aplikasi%20Kucing%20Kepo")));
             }
         });
     }
