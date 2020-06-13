@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Kucing Kepo</string>
-    <string name="title_activity_main">Kucing Kepo</string>
+    <string name="app_name">Belantar</string>
+    <string name="title_activity_main">Belantar</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -13,10 +13,14 @@
     <string name="action_settings">Setting</string>
     <string name="banner_ad_unit_id">ca-app-pub-9043865407906531/5056861075</string>
     <string-array name="list_category">
-        <item>Home</item>
-        <item>Tips and Trick for Cat</item>
-        <item>Cat Stories</item>
-        <item>Cat Knowledge</item>
-        <item>About Application</item>
+        <item>Beranda</item>
+        <item>Cek Belanja</item>
+        <item>Cek Biaya Kirim</item>
+        <item>Cek Resi</item>
+        <item>Katalog</item>
+        <item>Konfirmasi</item>
+        <item>Artikel Terbaru</item>
+        <item>Testimonial</item>
+        <item>Syarat &amp; Ketentuan</item>
     </string-array>
 </resources>

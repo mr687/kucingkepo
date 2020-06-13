@@ -3,35 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/nav_background"
+    android:background="#ffffff"
     android:padding="20dp"
     tools:context=".SplashScreenActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_above="@+id/title"
-        android:layout_marginBottom="10dp"
-        android:outlineSpotShadowColor="@color/colorPrimary"
-        android:src="@drawable/logo" />
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:text="KUCING KEPO"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/version"
-        android:textColor="#fff"
-        android:textAlignment="center"
-        android:layout_alignParentBottom="true"/>
+        android:src="@drawable/splash"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

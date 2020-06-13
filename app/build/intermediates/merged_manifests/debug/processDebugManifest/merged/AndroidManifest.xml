@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kucingkepo.care"
+    package="com.belantar.app"
     android:versionCode="5"
     android:versionName="4.1.0" >
 
@@ -31,7 +31,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.kucingkepo.care.provider"
+            android:authorities="com.belantar.app.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -39,19 +39,19 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name="com.kucingkepo.care.SplashScreenActivity" >
-        </activity>
-        <activity
-            android:name="com.kucingkepo.care.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name="com.belantar.app.SplashScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.kucingkepo.care.AboutActivity" />
+        <activity
+            android:name="com.belantar.app.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name="com.belantar.app.AboutActivity" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
@@ -61,7 +61,7 @@
 
         <provider
             android:name="com.google.android.gms.ads.MobileAdsInitProvider"
-            android:authorities="com.kucingkepo.care.mobileadsinitprovider"
+            android:authorities="com.belantar.app.mobileadsinitprovider"
             android:exported="false"
             android:initOrder="100" />
 
